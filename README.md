@@ -8,7 +8,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/OliveiraCleidson/vimeo-clone">
+  <a href="https://github.com/OliveiraCleidson/tito-project">
     <img src="./.github/assets/logo_video.webp" alt="Logo" width="200" height="200">
   </a>
 
@@ -17,9 +17,9 @@
   <p align="center">
     A microservice approach to a video streaming platform created for educational purposes.
     <br />
-    <a href="https://github.com/OliveiraCleidson/vimeo-clone/issues">Report Bug</a>
+    <a href="https://github.com/OliveiraCleidson/tito-project/issues">Report Bug</a>
     ·
-    <a href="https://github.com/OliveiraCleidson/vimeo-clone/issues">Request Feature</a>
+    <a href="https://github.com/OliveiraCleidson/tito-project/issues">Request Feature</a>
   </p>
 </div>
 
@@ -91,7 +91,7 @@ This project is a SaaS (Software as a Service) video streaming platform, similar
   * [ ] Helm
   * [ ] Ansible
 
-See the [open issues](https://github.com/OliveiraCleidson/vimeo-clone/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/OliveiraCleidson/tito-project/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,22 +123,22 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Cleidson Oliveira - [@olivercleidson](https://twitter.com/olivercleidson) - <<<contato@cleidsonoliveira.dev>>>
 
-Project Link: [https://github.com/OliveiraCleidson/vimeo-clone](https://github.com/OliveiraCleidson/vimeo-clone)
+Project Link: [https://github.com/OliveiraCleidson/tito-project](https://github.com/OliveiraCleidson/tito-project)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/OliveiraCleidson/vimeo-clone/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/OliveiraCleidson/vimeo-clone/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/OliveiraCleidson/vimeo-clone/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/OliveiraCleidson/vimeo-clone/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/OliveiraCleidson/vimeo-clone/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/OliveiraCleidson/tito-project.svg?style=for-the-badge
+[contributors-url]: https://github.com/OliveiraCleidson/tito-project/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/OliveiraCleidson/tito-project.svg?style=for-the-badge
+[forks-url]: https://github.com/OliveiraCleidson/tito-project/network/members
+[stars-shield]: https://img.shields.io/github/stars/OliveiraCleidson/tito-project.svg?style=for-the-badge
+[stars-url]: https://github.com/OliveiraCleidson/tito-project/stargazers
+[issues-shield]: https://img.shields.io/github/issues/OliveiraCleidson/tito-project.svg?style=for-the-badge
+[issues-url]: https://github.com/OliveiraCleidson/tito-project/issues
+[license-shield]: https://img.shields.io/github/license/OliveiraCleidson/tito-project.svg?style=for-the-badge
+[license-url]: https://github.com/OliveiraCleidson/tito-project/blob/master/LICENSE.txt
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Golang]: https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white
