@@ -1,0 +1,177 @@
+// View Diagrams in: https://dbdiagram.io/d
+
+Project project_name {
+  database_type: 'PostgreSQL'
+  Note: 'A Video Host SaaS'
+}
+
+// Video Resources Context
+Table resources.videos as v{
+  id uuid [pk]
+  owner_id varchar [not null]
+  display_name varchar [not null]
+  description varchar [not null]
+  duration_sec int [null]
+  origin_url varchar [null, note: 'Link of brute video file']
+  status resources.video_status
+  created_at timestamp [not null, default: 'now()']
+  updated_at timestamp [not null, default: 'now()']
+  deleted_at timestamp [not null, default: 'now()']
+}
+
+Table resources.video_links as vl {
+  id uuid [pk]
+  video_id uuid [ref: > v.id, not null]
+  resolution resources.video_resolutions [not null]
+  type resources.video_type [not null]
+  url varchar [not null]
+  created_at timestamp [not null, default: 'now()']
+  updated_at timestamp [not null, default: 'now()']
+  deleted_at timestamp [not null, default: 'now()']
+
+  indexes {
+    (video_id) [name: 'idx_video_links']
+  }
+}
+
+Table resources.video_text_tracks as vtt {
+  id uuid [pk]
+  video_id uuid [ref: > v.id, not null]
+  display_name varchar [not null]
+  url varchar
+  active boolean
+  created_at timestamp [not null, default: 'now()']
+  updated_at timestamp [not null, default: 'now()']
+  deleted_at timestamp [not null, default: 'now()']
+
+  indexes {
+    (video_id) [name: 'idx_video_links']
+  }
+}
+
+Table resources.video_thumbnails as vth {
+  id uuid [pk]
+  video_id uuid [ref: > v.id, not null]
+  height int [not null]
+  width int [not null]
+  url varchar
+  created_at timestamp [not null, default: 'now()']
+  updated_at timestamp [not null, default: 'now()']
+  deleted_at timestamp [not null, default: 'now()']
+
+  indexes {
+    (video_id) [name: 'idx_video_links']
+  }
+}
+
+TableGroup resources {
+  resources.videos
+  resources.video_links
+  resources.video_text_tracks
+  resources.video_thumbnails
+}
+
+// Worker
+Table worker.jobs as wjob {
+  id uuid [pk]
+  status worker.job_status [default: 'queued']
+  max_attemps int [default: 3]
+  attemps int [default: 0]
+  created_at timestamp [not null, default: 'now()']
+  updated_at timestamp [not null, default: 'now()']
+  deleted_at timestamp [not null, default: 'now()']
+}
+
+Table worker.received_video as rv {
+  video_id uuid [pk]
+  url varchar
+  created_at timestamp [not null, default: 'now()']
+  updated_at timestamp [not null, default: 'now()']
+  deleted_at timestamp [not null, default: 'now()']
+}
+
+Table worker.transcoded_videos as tv{
+  id uuid [pk]
+  video_id uuid [ref: > rv.video_id]
+  resolution worker.video_resolutions
+  type worker.video_type
+  url varchar
+  created_at timestamp [not null, default: 'now()']
+  updated_at timestamp [not null, default: 'now()']
+  deleted_at timestamp [not null, default: 'now()']
+
+  indexes {
+    video_id [name: 'idx_transcoded_videos']
+  }
+}
+
+Table worker.transcoded_video_thumbnails {
+  id uuid [pk]
+  video_id uuid [ref: > rv.video_id]
+  height int
+  width int
+  url varchar
+  created_at timestamp [not null, default: 'now()']
+  updated_at timestamp [not null, default: 'now()']
+  deleted_at timestamp [not null, default: 'now()']
+
+
+  indexes {
+    video_id [name: 'idx_transcoded_video_thumbnails']
+  }
+}
+
+Table worker.transcode_job {
+  video_id uuid [ref: > rv.video_id]
+  job_id uuid [ref: > wjob.id]
+}
+
+// Table groups
+
+
+// Enums
+// Resources
+enum resources.video_status {
+  waiting_upload
+  transcode_queued
+  transcoding
+  failed
+  available
+  hidden
+}
+
+enum resources.video_resolutions {
+  4k
+  2048p
+  1080p
+  720p
+  480p
+  320p
+}
+
+enum resources.video_type {
+  "video/mp4"
+  "video/hls"
+}
+
+// Worker
+enum worker.job_status {
+  queued
+  in_progress
+  completed
+  failed
+}
+
+enum worker.video_resolutions {
+  4k
+  2048p
+  1080p
+  720p
+  480p
+  320p
+}
+
+enum worker.video_type {
+  "video/mp4"
+  "video/hls"
+}
